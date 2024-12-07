@@ -6,7 +6,7 @@ day_num = ARGV[0]
 dir_name = "day_#{day_num}"
 raise "Day already exists" if File.directory?(dir_name)
 
-system("mkdir #{dir_name}")
+Dir.mkdir(dir_name)
 
 content = <<~CONTENT
   inputs = File.read("input.txt")
@@ -30,4 +30,3 @@ if response.is_a?(Net::HTTPSuccess)
 else
   raise "HTTP Error: #{response.code} - #{response.message}"
 end
-
